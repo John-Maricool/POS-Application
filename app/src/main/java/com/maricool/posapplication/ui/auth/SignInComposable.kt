@@ -35,6 +35,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.maricool.posapplication.ui.theme.typography
 
 @Composable
 fun SignInComposable() {
@@ -48,15 +49,13 @@ fun SignInComposable() {
         Column(modifier = Modifier.align(Alignment.CenterStart)) {
             Text(
                 "Welcome Back",
-                fontWeight = FontWeight.Medium,
-                fontSize = 23.sp,
+                style = typography.bodyLarge,
                 color = MaterialTheme.colorScheme.surface
             )
             Spacer(modifier = Modifier.height(10.dp))
             Text(
                 "Proceed with your valid details",
-                fontWeight = FontWeight.Light,
-                fontSize = 15.sp,
+                style = typography.bodySmall,
                 color = MaterialTheme.colorScheme.onBackground
             )
             Spacer(modifier = Modifier.height(30.dp))
@@ -67,8 +66,8 @@ fun SignInComposable() {
             Box(contentAlignment = Alignment.CenterEnd, modifier = Modifier.fillMaxWidth()) {
                 Text(
                     "Forgot Password?",
+                    style = typography.bodySmall,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 15.sp,
                     color = MaterialTheme.colorScheme.surface,
                 )
             }
@@ -93,7 +92,10 @@ fun SingleInputField() {
     val isFocused = interactionSource.collectIsFocusedAsState().value
 
     Column() {
-        Text("Email address", fontWeight = FontWeight.Light, fontSize = 15.sp)
+        Text(
+            "Email address", style = typography.bodySmall,
+            fontSize = 15.sp
+        )
         TextField(
             value = state.value,
             singleLine = true,
@@ -105,11 +107,15 @@ fun SingleInputField() {
                     shape = RoundedCornerShape(5.dp)
                 ),
             interactionSource = interactionSource,
-            placeholder = { Text(text = "john@gmail.com") },
+            placeholder = {
+                Text(
+                    text = "john@gmail.com", style = typography.bodySmall,
+                )
+            },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = Color.Black,
                 focusedBorderColor = Color.Transparent,
-                unfocusedBorderColor = Color.Gray,
+                unfocusedBorderColor = Color.Transparent,
                 containerColor = Color(0xFFF7F5F5)
             )
         )
@@ -126,7 +132,9 @@ fun SinglePasswordField() {
     val isFocused = interactionSource.collectIsFocusedAsState().value
 
     Column {
-        Text("Password", fontWeight = FontWeight.Light, fontSize = 15.sp)
+        Text(
+            "Password", style = typography.bodySmall, fontSize = 15.sp
+        )
 
         TextField(
             value = state.value,
@@ -143,10 +151,16 @@ fun SinglePasswordField() {
                     onValueChange = { passwordVisibility.value = it },
                 ),
             interactionSource = interactionSource,
-            placeholder = { Text(text = "john@gmail.com") },
+            placeholder = {
+                Text(
+                    text = "john@gmail.com",
+                    style = typography.bodySmall,
+                )
+            },
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 textColor = Color.Black,
                 focusedBorderColor = Color.Transparent,
+                unfocusedBorderColor = Color.Transparent,
                 containerColor = Color(0xFFF7F5F5)
             ),
             visualTransformation = if (passwordVisibility.value) VisualTransformation.None else PasswordVisualTransformation(),
@@ -164,7 +178,6 @@ fun SinglePasswordField() {
     }
 }
 
-
 @Composable
 fun DefaultButton(text: String, onClick: () -> Unit) {
     Button(
@@ -177,9 +190,9 @@ fun DefaultButton(text: String, onClick: () -> Unit) {
     ) {
         Text(
             text = text,
+            style = typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface,
             fontWeight = FontWeight.Bold,
-            fontSize = 16.sp,
             textAlign = TextAlign.Center
         )
     }
@@ -190,12 +203,13 @@ fun DefaultButton(text: String, onClick: () -> Unit) {
 fun IDontHaveAnAccount() {
     Row {
         Text(
-            text = "I don't have an account? ", fontWeight = FontWeight.Light,
-            fontSize = 15.sp,
+            text = "I don't have an account? ",
+            style = typography.bodySmall,
             color = MaterialTheme.colorScheme.onBackground,
         )
         Text(
-            text = "Create one", fontWeight = FontWeight.SemiBold,
+            text = "Create one",
+            style = typography.bodyMedium,
             fontSize = 15.sp,
             color = MaterialTheme.colorScheme.surface,
         )
