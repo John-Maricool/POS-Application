@@ -1,58 +1,47 @@
 package com.maricool.posapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHost
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.navigation.compose.rememberNavController
-import com.maricool.posapplication.ui.auth.ForgotPasswordComposable
-import com.maricool.posapplication.ui.auth.SignInComposable
-import com.maricool.posapplication.ui.auth.SignUpComposable
-import com.maricool.posapplication.ui.auth.SuccessfulRegistrationComposable
-import com.maricool.posapplication.ui.auth.VerifyEmailComposable
+import com.maricool.posapplication.ui.BottomNav
+import com.maricool.posapplication.ui.MyAppNavHost
 import com.maricool.posapplication.ui.theme.POSApplicationTheme
+import com.maricool.posapplication.utils.BottomNavItem
 import com.maricool.posapplication.utils.Routes
 
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val bottomNavScreens = listOf(
+                BottomNavItem.Home.screen_route,
+                BottomNavItem.Settings.screen_route,
+                BottomNavItem.Insights.screen_route
+            )
+
             POSApplicationTheme {
-                MyAppNavHost()
+                val navController = rememberNavController()
+                Scaffold(
+                    bottomBar = {
+                        Log.d("ddd", navController.currentBackStackEntry?.destination?.route.toString())
+                        if (navController.currentBackStackEntry?.destination?.route == Routes.home) {
+                            BottomNav(navController = navController)
+                        }
+                    },
+                    content = { padd ->
+                        padd.calculateTopPadding()
+                        Log.d("ddd", navController.currentBackStackEntry?.destination?.route.toString())
+                        MyAppNavHost(navController = navController)
+                    }
+                )
             }
         }
     }
 }
 
-@Composable
-fun MyAppNavHost(
-) {
-val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Routes.sign_in, builder = {
-        composable(Routes.sign_in){
-            SignInComposable(navController)
-        }
-        composable(Routes.sign_up){
-            SignUpComposable(navController)
-        }
-        composable(Routes.verify_email){
-            VerifyEmailComposable(navController = navController)
-        }
-        composable(Routes.successful_registration){
-            SuccessfulRegistrationComposable(navController = navController)
-        }
-        composable(Routes.forgot_password){
-            ForgotPasswordComposable(navController)
-        }
-    })
-}
+

@@ -62,6 +62,7 @@ fun SignInComposable(navController: NavHostController) {
             }
             Spacer(modifier = Modifier.height(30.dp))
             DefaultButton(text = "Login to account") {
+                navController.navigate(Routes.home)
             }
             Spacer(modifier = Modifier.height(30.dp))
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.BottomCenter) {

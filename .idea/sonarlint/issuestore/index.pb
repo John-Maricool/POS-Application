@@ -1,8 +1,4 @@
 
-o
-?app/src/main/java/com/maricool/posapplication/ui/theme/Theme.kt,8\6\86c5d67eceb0b8c07b2f1e5c6a20b7706d1cf9ba
-t
-Dapp/src/main/java/com/maricool/posapplication/ui/theme/Typography.kt,7\7\77cdd0663e062f83f68567c92f52485862d84468
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
 ?
@@ -11,3 +7,27 @@ A
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+y
+Iapp/src/main/java/com/maricool/posapplication/ui/auth/SignUpComposable.kt,6\0\60c65cf064b91ca7acfa062ce584585cf8c5e9c7
+~
+Napp/src/main/java/com/maricool/posapplication/ui/auth/VerifyEmailComposable.kt,1\f\1fbd46a84dc6e441eb82fa8004a9565703f31a85
+â
+Yapp/src/main/java/com/maricool/posapplication/ui/auth/SuccessfulRegistrationComposable.kt,7\c\7cc29f9a117a216bf44dfde60c72107c2863074e
+Å
+Qapp/src/main/java/com/maricool/posapplication/ui/auth/ForgotPasswordComposable.kt,3\9\39f1a9c84b693e6d70ab559d47a7cd4cef8a7cd6
+v
+Fapp/src/main/java/com/maricool/posapplication/ui/SettingsComposable.kt,e\8\e887299f970abbc58d4dca8f191879f714aac934
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+t
+Dapp/src/main/java/com/maricool/posapplication/utils/BottomNavItem.kt,0\d\0d4bce1c95c7637cc35141e961ef002aa63e9bd7
+m
+=app/src/main/java/com/maricool/posapplication/ui/BottomNav.kt,5\2\5235f85518041f616c989e5af5376c96a8fec5b9
+m
+=app/src/main/java/com/maricool/posapplication/MainActivity.kt,5\4\54bdc7f41c841fb65c2979ada686ea621be62ed2
+o
+?app/src/main/java/com/maricool/posapplication/ui/theme/Color.kt,c\e\ce38f77eaddd247e93dd5cc195924799438e5469
+o
+?app/src/main/java/com/maricool/posapplication/ui/theme/Theme.kt,8\6\86c5d67eceb0b8c07b2f1e5c6a20b7706d1cf9ba
+t
+Dapp/src/main/java/com/maricool/posapplication/ui/theme/Typography.kt,7\7\77cdd0663e062f83f68567c92f52485862d84468
